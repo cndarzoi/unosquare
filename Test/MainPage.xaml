@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Test.MainPage">
+    <StackLayout>
+        <Label Text="{Binding AndroidVersionRelease}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Entry Text="{Binding BrandEntry}" Placeholder="Enter brand"></Entry>
+        <Entry Text="{Binding ModelEntry}" Placeholder="Enter model"></Entry>
+        <Entry Text="{Binding YearEntry}" Placeholder="Enter year"></Entry>
+        <Button Text="Add" Command="{Binding OnAddCarToList}"></Button>
+        <ListView x:Name="CarList" ItemsSource="{Binding Cars, Mode=OneWay}">
+            <ListView.Header>
+                <Label Text="Car list" FontAttributes="Bold"></Label>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Brand}"/>
+                            <Label Text="{Binding Model}"/>
+                            <Label Text="{Binding Year}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
+
+<!--<StackLayout>
+            <Entry Text="{Binding Brand}">
+
+            </Entry>
+            <Entry Text="{Binding Model}">
+
+            </Entry>
+            <Entry Text="{Binding Year}"></Entry>
+        </StackLayout>
+        <Button Text="Add" Command="{Binding AddCarCommand}"></Button>-->
